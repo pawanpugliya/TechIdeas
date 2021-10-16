@@ -1,0 +1,30 @@
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand mx-2" routerLink="/">TechIdeas</a>
+
+    <button class="navbar-toggler" type="button" (click)="toggleNav()" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse show" id="navbarSupportedContent">
+      <ul class="navbar-nav mb-3 mt-3" id="navbarNav">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link mx-2" routerLink="/" routerLinkActive="active">Dashboard</a>
+        </li>
+
+        <li class="nav-item" role="presentation" *ngIf="!isLogin; else showNavItems">
+          <a class="btn btn-primary" routerLink="/login" routerLinkActive="active">Login</a>
+        </li>
+
+        <ng-template #showNavItems>
+          <li class="nav-item" role="presentation">
+            <a class="nav-link mx-2" routerLink="/manage" routerLinkActive="active">Manage</a>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="btn btn-danger mx-2" (click)="onLogout()">Logout</button>
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</nav>

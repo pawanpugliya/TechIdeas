@@ -1,0 +1,24 @@
+<h2>Dashboard</h2>
+
+<div *ngIf="dashboardItems.length === 0">
+  There are no ideas submitted yet.
+</div>
+
+<div *ngIf="dashboardItems.length > 0">
+  <div class="select__wrapper col-sm-4">
+    <label for="sortBy" class="select__label">Sort by:</label>
+    <select id="sortBy" class="form-select" (change)="onSortBy($event)">
+      <option value="" selected>Please select</option>
+      <option value="votes">Votes count</option>
+      <option value="date">Creation date</option>
+    </select>
+  </div>
+
+  <div class="card-container">
+    <div *ngFor="let item of dashboardItems" class="col-md-8">
+      <app-idea-card [idea]="item" [mode]="'dashboard'" [isLogin]="isLogin"></app-idea-card>
+    </div>
+  </div>
+
+</div>
+

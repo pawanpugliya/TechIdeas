@@ -1,0 +1,19 @@
+.navbar-toggler {
+    display: block;
+}
+
+/* For Desktop screens */
+@media (min-width:1025px) {
+    .navbar-toggler {
+        display: none !important;
+    }
+
+    .collapse {
+        display: block;
+        flex: inherit;
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+    }
+}

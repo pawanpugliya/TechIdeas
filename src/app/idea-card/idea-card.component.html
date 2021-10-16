@@ -1,0 +1,32 @@
+<div class="card mb-3" id="{{idea.title}}">
+  <div class="card-body">
+    <h3 class="card-title">{{idea.title}}</h3>
+    <p class="card-text"><strong>Description:  </strong>{{idea.description}}</p>
+    <p class="card-text"><strong>Tags: </strong>{{idea.tags}}</p>
+    <p class="card-text"><strong>Votes: </strong>{{idea.votes}}</p>
+    <div *ngIf="mode === 'dashboard';else notMe" >
+      <p class="card-text">
+        <strong>Created by: </strong>
+        {{idea.createdBy}} <strong>on </strong> 
+        <small class="text-muted">{{idea.createdOn | date }}</small>
+      </p>
+    </div>
+    <ng-template #notMe>
+      <p class="card-text">
+        <strong>Created on: </strong>
+        <small class="text-muted">{{idea.createdOn | date }}</small>
+      </p>
+    </ng-template>
+  </div>
+  
+  <div class="card-footer" *ngIf="isLogin">
+    <div *ngIf="mode === 'dashboard'">
+      <button *ngIf="!userLiked" class="btn btn-primary" (click)="onLikeDislike(idea.title, true)">Like</button>
+      <button *ngIf="userLiked" class="btn btn-warning" (click)="onLikeDislike(idea.title, false)">Unlike</button>
+    </div>
+    
+    <div *ngIf="mode === 'user'">
+      <button class="btn btn-danger" (click)="deleteCard(idea.title)">Delete</button>
+    </div>
+  </div>
+</div>

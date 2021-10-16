@@ -1,0 +1,18 @@
+<h2>Manage</h2>
+<app-idea-form></app-idea-form>
+
+<h2>My Ideas</h2>
+
+<div id="infoMessage" *ngIf="myIdeas.length === 0;showIdeas">
+    You do not have any Ideas proposed.
+</div>
+<div #showIdeas class="card-container">
+    <div *ngFor="let item of myIdeas" class="col-md-8">
+        <app-idea-card
+            [idea]="item"
+            [mode]="'user'"
+            [removable]="true"
+            [isLogin]="isLogin">
+        </app-idea-card>
+    </div>
+</div>
