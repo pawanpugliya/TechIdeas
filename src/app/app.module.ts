@@ -13,6 +13,8 @@ import { ManageComponent } from './manage/manage.component';
 import { IdeaCardComponent } from './idea-card/idea-card.component';
 import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { IdeaService } from './services/idea.service';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -38,7 +40,13 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       { enableTracing: false }
-    )
+    ),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     AuthService, 
