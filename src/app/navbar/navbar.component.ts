@@ -15,6 +15,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.loginSubscription = authService.getSubject()
       .subscribe(isLogin => {
         this.isLogin = isLogin
+        if(this.isLogin) {
+          this.toggleNav();
+        }
       });
   }
 
@@ -24,6 +27,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   onLogout():void {
     this.authService.logout();
+    this.toggleNav();
   }
 
   toggleNav():void {
