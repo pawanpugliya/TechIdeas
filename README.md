@@ -1,6 +1,13 @@
 # TechIdeas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.
+This is a simple practice project which captures the technical ideas which can also be voted by other logged in users. It is using a local storage as a data source, which will be later moved to some backend.
+
+### Features
+ - **PWA** (Offline support via service worker.
+ - Containerized using **Docker**
+ - Basic CRUD operations
+ - **Vote/Un-vote** the idea on Dashboard
+ - **Sort** ideas based on vote count OR creation date
 
 ## Development server
 
@@ -31,3 +38,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+**This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.5.**
