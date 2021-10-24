@@ -15,12 +15,14 @@ import { IdeaFormComponent } from './idea-form/idea-form.component';
 import { IdeaService } from './services/idea.service';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { SignupComponent } from './signup/signup.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'manage', component: ManageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: DashboardComponent },
+  { path: 'signup', component: SignupComponent }
 ];
 
 @NgModule({
@@ -31,7 +33,8 @@ const appRoutes: Routes = [
     LoginComponent,
     IdeaCardComponent,
     IdeaFormComponent,
-    ManageComponent
+    ManageComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
