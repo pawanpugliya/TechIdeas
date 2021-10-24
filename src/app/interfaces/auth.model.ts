@@ -1,3 +1,4 @@
 export interface AuthModel {
-    employeeId: number
+    employeeId: number,
+    password: string
 }
